@@ -56,18 +56,21 @@ const Navbar = () => {
           ))}
         </ul> */}
 
-        {/* Right Actions */}
-        <div className="hidden lg:flex items-center gap-4">
-          <a href="#register" className="btn btn-gradient !py-2 !px-6 !text-sm">
+        {/* Actions */}
+        <div className="flex items-center gap-2 md:gap-4">
+          {/* Desktop Register */}
+          <a href="#register" className="hidden lg:flex btn btn-gradient !py-2 !px-6 !text-sm">
             Register Now →
           </a>
-        </div>
 
-        {/* Hamburger Menu - Visible only on Tablet (md to lg) if you want, or just hide on mobile */}
-        {/* The user said "remove the navigation bar except logo on mobile" */}
-        <div className="hidden sm:block lg:hidden">
-          <button className="text-slate-900 p-2 z-[2001] hover:bg-slate-100 rounded-lg transition-colors" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {/* Mobile Register */}
+          <a href="#register" className="flex lg:hidden btn btn-gradient !py-1.5 !px-3.5 !text-[10px] !font-bold uppercase tracking-wider">
+            Register
+          </a>
+
+          {/* Mobile Menu Toggle - Hidden on very small screens, visible on tablet */}
+          <button className="hidden sm:flex lg:hidden text-slate-900 p-1.5 z-[2001] hover:bg-slate-100 rounded-lg transition-colors" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -148,7 +151,7 @@ const TrustTicker = () => {
 
         <div className="flex gap-20 items-center animate-marquee whitespace-nowrap pl-5">
           {[...logos, ...logos, ...logos].map((logo, index) => (
-            <div key={index} className="flex items-center gap-3 font-bold text-xl text-slate-400 opacity-40 uppercase grayscale hover:opacity-100 hover:grayscale-0 hover:text-primary transition-all cursor-default">
+            <div key={index} className="flex items-center gap-3 font-bold text-xl text-slate-400 opacity-40 uppercase grayscale hover:opacity-100 hover:grayscale-0 hover:text-primary transition-all cursor-default active:opacity-100 active:grayscale-0 active:text-primary active:scale-95 duration-200">
               {logo.icon}
               {logo.name}
             </div>
